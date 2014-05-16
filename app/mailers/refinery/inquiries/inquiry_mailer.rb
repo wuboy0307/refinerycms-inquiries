@@ -2,7 +2,7 @@ module Refinery
   module Inquiries
     class InquiryMailer < ActionMailer::Base
 
-      def confirmation(inquiry, request)
+      def confirmation(inquiry, request=nil)
         @inquiry, @request = inquiry, request
         mail :subject   => Refinery::Inquiries::Setting.confirmation_subject(Globalize.locale),
              :to        => inquiry.email,
@@ -10,7 +10,7 @@ module Refinery
              :reply_to  => Refinery::Inquiries::Setting.notification_recipients.split(',').first
       end
 
-      def notification(inquiry, request)
+      def notification(inquiry, request=nil)
         @inquiry, @request = inquiry, request
         mail :subject   => Refinery::Inquiries::Setting.notification_subject,
              :to        => Refinery::Inquiries::Setting.notification_recipients,
@@ -32,7 +32,7 @@ module Refinery
       end
 
       def from_mail
-        "#{Refinery::Inquiries.from_name}@#{@request.domain}"
+        "#{Refinery::Inquiries.from_name}@#{@request ? @request.domain : 'N/A '}"
       end
     end
   end
