@@ -1,0 +1,79 @@
+zh-TW:
+  refinery:
+    plugins:
+      refinerycms_inquiries:
+        title: 聯絡
+        description: 聯絡我們的表單
+    inquiries:
+      config:
+        from_name: "%{name} [%{site_name}]"
+      inquiries:
+        new:
+          send: 發送
+          privacy_policy: 我們重視您的隱私
+      admin:
+        inquiries:
+          delete: 永久刪除此訊息
+          inquiry:
+            read_inquiry: 閱讀此訊息
+            said: 說
+            mark_as_spam: 標記為垃圾郵件
+            mark_as_ham: 移至收件夾
+          submenu:
+            inbox: 收件夾
+            spam: 垃圾郵件
+            update_notified: 更新通知名單
+            edit_confirmation_email: 編輯確認email
+          index:
+            no_inquiries: 您還沒有收到任何消息
+            no_spam: 目前無垃圾郵件
+          show:
+            details: 詳細
+            age: 時間
+            actions: 動作
+            back_to_all_inquiries: 回列表
+            spam: 垃圾郵件
+            spam_yes: '是'
+            inquiry: 訊息
+            to: 到
+            from: 從
+            click_to_email: 發送到這個地址
+            phone: 電話
+            date: 日期
+            message: 訊息
+        settings:
+          notification_recipients_form:
+            inquiry_settings_value_name: 發送通知到
+            hint: 當收到新的訊息時，系統會發送通知給您
+            example: "輸入您的email地址，如: jack@work.com, jill@office.com"
+          confirmation_email_form:
+            to: 到
+            from: 從
+            subject: 標題
+            click_to_edit_subject: 編輯標題
+            explanation: 每當有人發送訊息給您，系統將會發送一則email以確認發送者身份
+            below_edit_email_sent: 您可以在此編輯要發送的email.
+            the_customer_making_inquiry: 客戶正在編輯中
+            message: 訊息
+            note: "把你的客戶名字在email出現的地方以%name%做替換"
+      inquiry_mailer:
+        notification:
+          greeting: 您好
+          you_recieved_new_inquiry: 您剛收到一則訊息
+          inquiry_starts: --- 訊息開始 ---
+          inquiry_ends: --- 訊息結束 ---
+          from: 來自
+          email: email
+          phone: 電話
+          message: 訊息
+          closing_line: 謝謝您
+          ps: 附言 您的訊息將被儲存
+  activerecord:
+    models:
+      refinery/inquiries/inquiry: 訊息
+    attributes:
+      refinery/inquiries/inquiry:
+        name: 姓名
+        email: email
+        phone: 聯絡電話
+        message: 留言內容
